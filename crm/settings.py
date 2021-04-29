@@ -1,8 +1,9 @@
 import os
-from dotenv import load_dotenv
 from pathlib import Path
+
 from celery.schedules import crontab
 from corsheaders.defaults import default_headers
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,12 @@ Domain = os.getenv("DOMAIN_NAME")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "f5club",
+    "185.104.112.60"
+    "localhost",
+    "127.0.0.1",
+]
 
 INSTALLED_APPS = [
     "django.contrib.auth",
@@ -133,23 +139,21 @@ if ENV_TYPE == "dev":
     # SESSION_COOKIE_DOMAIN = "localhost:8000"
 
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
     MEDIA_URL = "/media/"
     STATIC_URL = "/static/"
 elif ENV_TYPE == "live":
 
     from .server_settings import *
 
-
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "")
 ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "")
 MARKETING_REPLY_EMAIL = os.getenv("MARKETING_REPLY_EMAIL", "")
 PASSWORD_RESET_MAIL_FROM_USER = os.getenv("PASSWORD_RESET_MAIL_FROM_USER", "")
 
-
 # celery Tasks
 CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
-
 
 LOGGING = {
     "version": 1,
@@ -212,7 +216,6 @@ LOGGING = {
 }
 
 APPLICATION_NAME = "f5club"
-
 
 SETTINGS_EXPORT = ["APPLICATION_NAME"]
 
