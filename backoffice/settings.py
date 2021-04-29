@@ -22,6 +22,7 @@ Domain = os.getenv("DOMAIN_NAME")
 DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = [
+    "*",
     "f5club",
     "185.104.112.60"
     "localhost",
