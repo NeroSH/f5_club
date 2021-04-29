@@ -63,7 +63,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
 ]
 
-ROOT_URLCONF = "crm.urls"
+ROOT_URLCONF = "backoffice.urls"
 
 TEMPLATES = [
     {
@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "crm.wsgi.application"
+WSGI_APPLICATION = "backoffice.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -231,7 +231,7 @@ REST_FRAMEWORK = {
 }
 
 SWAGGER_SETTINGS = {
-    "DEFAULT_INFO": "crm.urls.info",
+    "DEFAULT_INFO": "backoffice.urls.info",
     "SECURITY_DEFINITIONS": {
         "api_key": {"type": "apiKey", "name": "Authorization", "in": "header"},
     },

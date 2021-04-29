@@ -9,7 +9,7 @@ from rest_framework import permissions
 
 
 openapi_info = openapi.Info(
-    title="Crm API",
+    title="F5Club API",
     default_version="v1",
 )
 
@@ -20,7 +20,7 @@ schema_view = get_schema_view(
 )
 
 
-app_name = "crm"
+app_name = "backoffice"
 
 urlpatterns = [
     url(

@@ -78,7 +78,7 @@ def send_lead_assigned_emails(lead_id, new_assigned_to_list, site_address):
 
 @app.task
 def send_email_to_assigned_user(
-    recipients, lead_id, domain="demo.django-crm.io", protocol="http", source=""
+    recipients, lead_id, domain="demo.django-backoffice.io", protocol="http", source=""
 ):
     """ Send Mail To Users When they are assigned to a lead """
     lead = Lead.objects.get(id=lead_id)

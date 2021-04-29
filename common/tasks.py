@@ -19,7 +19,7 @@ app = Celery("redis://")
 
 @app.task
 def send_email_to_new_user(
-    user_email, created_by, domain="demo.django-crm.io", protocol="http"
+    user_email, created_by, domain="demo.django-backoffice.io", protocol="http"
 ):
     """ Send Mail To Users When their account is created """
 
@@ -61,7 +61,7 @@ def send_email_to_new_user(
 
 @app.task
 def send_email_user_mentions(
-    comment_id, called_from, domain="demo.django-crm.io", protocol="http"
+    comment_id, called_from, domain="demo.django-backoffice.io", protocol="http"
 ):
     """ Send Mail To Mentioned Users In The Comment """
     comment = Comment.objects.filter(id=comment_id).first()
@@ -133,7 +133,7 @@ def send_email_user_mentions(
 
 @app.task
 def send_email_user_status(
-    user_id, status_changed_user="", domain="demo.django-crm.io", protocol="http"
+    user_id, status_changed_user="", domain="demo.django-backoffice.io", protocol="http"
 ):
     """ Send Mail To Users Regarding their status i.e active or inactive """
     user = User.objects.filter(id=user_id).first()
@@ -170,7 +170,7 @@ def send_email_user_status(
 
 @app.task
 def send_email_user_delete(
-    user_email, deleted_by="", domain="demo.django-crm.io", protocol="http"
+    user_email, deleted_by="", domain="demo.django-backoffice.io", protocol="http"
 ):
     """ Send Mail To Users When their account is deleted """
     if user_email:
@@ -190,7 +190,7 @@ def send_email_user_delete(
 
 @app.task
 def resend_activation_link_to_user(
-    user_email="", domain="demo.django-crm.io", protocol="http"
+    user_email="", domain="demo.django-backoffice.io", protocol="http"
 ):
     """ Send Mail To Users When their account is created """
 
@@ -231,7 +231,7 @@ def resend_activation_link_to_user(
 
 @app.task
 def send_email_to_reset_password(
-    user_email, domain="demo.django-crm.io", protocol="http"
+    user_email, domain="demo.django-backoffice.io", protocol="http"
 ):
     """ Send Mail To Users When their account is created """
     user = User.objects.filter(email=user_email).first()

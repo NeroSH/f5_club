@@ -20,7 +20,7 @@ for dirpath, dirnames, filenames in os.walk(PROJECT_NAME):
             data_files.append(os.path.join(dirpath[len(PROJECT_NAME) + 1 :], f))
 
 setup(
-    name="django-crm",
+    name="django-backoffice",
     version="0.7.0",
     packages=find_packages(exclude=["tests", "tests.*"]),
     include_package_data=True,

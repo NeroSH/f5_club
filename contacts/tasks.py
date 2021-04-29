@@ -11,7 +11,7 @@ app = Celery("redis://")
 
 @app.task
 def send_email_to_assigned_user(
-    recipients, contact_id, domain="demo.django-crm.io", protocol="http"
+    recipients, contact_id, domain="demo.django-backoffice.io", protocol="http"
 ):
     """ Send Mail To Users When they are assigned to a contact """
     contact = Contact.objects.get(id=contact_id)

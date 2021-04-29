@@ -59,7 +59,7 @@ def send_email(email_obj_id):
 
 @app.task
 def send_email_to_assigned_user(
-    recipients, from_email, domain="demo.django-crm.io", protocol="http"
+    recipients, from_email, domain="demo.django-backoffice.io", protocol="http"
 ):
     """ Send Mail To Users When they are assigned to a contact """
     account = Account.objects.filter(id=from_email).first()

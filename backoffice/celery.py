@@ -3,11 +3,11 @@ import os
 from celery import Celery
 
 # set the default Django settings module for the 'celery' program.
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "crm.settings")
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crm.dev_settings')
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crm.server_settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backoffice.settings")
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backoffice.dev_settings')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backoffice.server_settings')
 
-app = Celery("crm")
+app = Celery("backoffice")
 
 # Using a string here means the worker don't have to serialize
 # the configuration object to child processes.

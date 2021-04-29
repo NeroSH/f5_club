@@ -12,7 +12,7 @@ app = Celery("redis://")
 
 
 @app.task
-def send_email(event_id, recipients, domain="demo.django-crm.io", protocol="http"):
+def send_email(event_id, recipients, domain="demo.django-backoffice.io", protocol="http"):
     event = Event.objects.filter(id=event_id).first()
     subject = " Invitation for an event."
     context = {}

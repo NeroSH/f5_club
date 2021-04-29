@@ -1,15 +1,15 @@
 import arrow
 from django.db import models
+from django.utils.text import slugify
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
+from phonenumber_field.modelfields import PhoneNumberField
 
+from common import utils
 from common.models import User
 from common.utils import INDCHOICES, COUNTRIES
-from phonenumber_field.modelfields import PhoneNumberField
-from django.utils.text import slugify
 from contacts.models import Contact
 from teams.models import Teams
-from common import utils
 
 
 class Tags(models.Model):
@@ -22,7 +22,6 @@ class Tags(models.Model):
 
 
 class Account(models.Model):
-
     ACCOUNT_STATUS_CHOICE = (("open", "Open"), ("close", "Close"))
 
     name = models.CharField(pgettext_lazy("Name of Account", "Name"), max_length=64)

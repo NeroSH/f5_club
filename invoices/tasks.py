@@ -11,7 +11,7 @@ app = Celery("redis://")
 
 
 @app.task
-def send_email(invoice_id, recipients, domain="demo.django-crm.io", protocol="http"):
+def send_email(invoice_id, recipients, domain="demo.django-backoffice.io", protocol="http"):
     invoice = Invoice.objects.filter(id=invoice_id).first()
     created_by = invoice.created_by
     for user in recipients:
@@ -68,7 +68,7 @@ def send_email(invoice_id, recipients, domain="demo.django-crm.io", protocol="ht
 
 
 @app.task
-def send_invoice_email(invoice_id, domain="demo.django-crm.io", protocol="http"):
+def send_invoice_email(invoice_id, domain="demo.django-backoffice.io", protocol="http"):
     invoice = Invoice.objects.filter(id=invoice_id).first()
     if invoice:
         subject = "CRM Invoice : {0}".format(invoice.invoice_title)
@@ -88,7 +88,7 @@ def send_invoice_email(invoice_id, domain="demo.django-crm.io", protocol="http")
 
 
 @app.task
-def send_invoice_email_cancel(invoice_id, domain="demo.django-crm.io", protocol="http"):
+def send_invoice_email_cancel(invoice_id, domain="demo.django-backoffice.io", protocol="http"):
     invoice = Invoice.objects.filter(id=invoice_id).first()
     if invoice:
         subject = "CRM Invoice : {0}".format(invoice.invoice_title)
