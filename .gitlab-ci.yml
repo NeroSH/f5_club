@@ -1,0 +1,15 @@
+deploy_live:
+  stage: deploy
+  environment:
+    name: live
+  script:
+    - df -h
+    - sudo /bin/rm -rf /home/f5club/f5club/; cp -r . /home/f5club/f5club/
+    - source /home/f5club/env/bin/activate
+    - pip install -r /home/f5club/f5club/requirements.txt
+    - python /home/f5club/f5club/manage.py migrate --noinput
+    - sudo /usr/bin/supervisorctl restart all
+  only:
+    - master
+  tags:
+    - f5club-ru
